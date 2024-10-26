@@ -9,7 +9,7 @@
 *.swp
 .DS_Store
 .atom/
-.buildlog/
+.buildlo
 .history
 .svn/
 
