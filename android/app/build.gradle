@@ -5,10 +5,27 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('local.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+def flutterVersionCode = keystoreProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null ){
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = keystoreProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null ){
+    flutterVersionName = '1.0'
+}
+
 android {
     namespace = "com.lottery.dev.lottery"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+//    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -26,15 +43,44 @@ android {
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        versionCode = flutterVersionCode.toInteger()
+        versionName = flutterVersionName
+    }
+
+    signingConfigs {
+        release {
+            keyAlias = keystoreProperties['keyAlias']
+            keyPassword = keystoreProperties['keyPassword']
+            storeFile = keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword = keystoreProperties['storePassword']
+        }
     }
 
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.debug
+            signingConfig = signingConfigs.release
+            ndk {
+                debugSymbolLevel 'FULL'
+            }
+        }
+        debug {
+            signingConfig = signingConfigs.release
+        }
+    }
+
+    flavorDimensions "env"
+    productFlavors {
+        dev {
+            dimension "env"
+            applicationId 'com.lottery.dev'
+            resValue "string", "app_name", "[DEV]Lottery"
+        }
+        prod {
+            dimension "env"
+            applicationId 'com.lottery.prod'
+            resValue "string", "app_name", "Lottery"
         }
     }
 }
