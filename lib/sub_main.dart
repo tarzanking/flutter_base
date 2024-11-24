@@ -2,6 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 import 'package:lottery/config/app_config.dart';
+import 'package:lottery/controller/language_controller.dart';
 import 'package:lottery/controller/profile_controller.dart';
 import 'package:lottery/global/define.dart';
 import 'package:lottery/global/local_storage.dart';
@@ -50,6 +51,8 @@ class SubMain {
     var profileController = ProfileController();
     Get.put(profileController, permanent: true);
     await profileController.init();
+
+    await Get.putAsync(() => LanguageController().init(), permanent: true);
   }
 }
 

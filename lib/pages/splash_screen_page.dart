@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottery/config/app_config.dart';
 import 'package:lottery/routes/app_routes.dart';
 
 class SplashScreenPage extends StatefulWidget {
@@ -11,30 +12,16 @@ class SplashScreenPage extends StatefulWidget {
 
 class _SplashScreenPageState extends State<SplashScreenPage>
     with TickerProviderStateMixin {
-  late AnimationController animationController;
-  late Animation<double> translateIconFirst;
-  late Animation<double> opacityBg;
-  late Animation<Offset> translateIconSecond;
-  late Animation<double> opacityIconSecond;
-
-  late Image imageBg;
-  late Image imageIconSecond;
-  late Image imageIconLicense1;
-  late Image imageIconLicense2;
-  late Image imageIconLicense3;
-  late Image imageIconSplashScreen;
-
-  bool goToAppLanding = false;
 
   @override
   void initState() {
     super.initState();
-    Get.offAndToNamed(AppRoutes.landingPage);
+    enterLandingPage();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
+  enterLandingPage() async{
+    await Future.delayed(Duration(seconds: 2));
+    Get.offAndToNamed(AppRoutes.homePage);
   }
 
   @override
@@ -46,7 +33,13 @@ class _SplashScreenPageState extends State<SplashScreenPage>
           constraints:
               BoxConstraints.expand(width: Get.width, height: Get.height),
           child: Container(
-
+            color: Colors.greenAccent,
+            child: Center(
+              child: Text(
+                Get.find<AppConfig>().appName,
+                style: Theme.of(context).textTheme.headlineLarge?.copyWith(fontSize: 50),
+              ),
+            ),
           )
         ),
       ),
