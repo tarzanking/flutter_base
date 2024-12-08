@@ -7,5 +7,6 @@ class AppRoutes {
   static const String forgotPasswordPage = '/forgotPasswordPage';
   static const String otpPage = '/otpPage';
   static const String landingPage = '/landingPage';
+  static const String secondPage = '/secondPage';
   static const String splashScreenPage = '/splashScreenPage';
 }

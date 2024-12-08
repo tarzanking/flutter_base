@@ -16,4 +16,12 @@ class Label {
   static const String is_required = 'is_required';
   static const String this_field_is_required = 'this_field_is_required';
   static const String noMoreData = 'noMoreData';
+  static const String secondAgo = 'secondAgo';
+  static const String minuteAgo = 'minuteAgo';
+  static const String hourAgo = 'hourAgo';
+  static const String dayAgo = 'dayAgo';
+  static const String home = 'home';
+  static const String secondPage = 'secondPage';
+  static const String more = 'more';
+  static const String clickAgainToExitTheApp = 'clickAgainToExitTheApp';
 }

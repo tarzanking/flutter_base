@@ -5,4 +5,5 @@ class Define {
       String.fromEnvironment("DEFINE_APP_DISPLAY_NAME", defaultValue: "XTL");
   static const String appEnv =
       String.fromEnvironment("DEFINE_ENV", defaultValue: "prod");
+  static const String currencyCode= '\$';
 }

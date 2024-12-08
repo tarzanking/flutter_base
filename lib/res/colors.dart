@@ -12,6 +12,8 @@ class Colours {
   static const Color colorDivider = Colors.black;
   static const Color colorTagBg = Colors.black;
   static const Color colorTabBar = Colors.black;
+  static const Color colorActiveTab = Colors.yellow;
+  static const Color colorInactiveTab = Colors.white;
 
   static const Color colorRedText = Colors.red;
   static const Color colorPassiveButton = Colors.green;

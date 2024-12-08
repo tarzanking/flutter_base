@@ -21,7 +21,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
 
   enterLandingPage() async{
     await Future.delayed(Duration(seconds: 2));
-    Get.offAndToNamed(AppRoutes.homePage);
+    Get.offAndToNamed(AppRoutes.landingPage);
   }
 
   @override
