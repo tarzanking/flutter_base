@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "909200811909",
+    "project_id": "lottery-10aee",
+    "storage_bucket": "lottery-10aee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909200811909:android:52398ebcfaa3dedc6f06ec",
+        "android_client_info": {
+          "package_name": "com.lottery.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0qlLy3ugKos14fMAA7hKqDiemX8JZ3I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909200811909:android:c8ddd7d093fbdff86f06ec",
+        "android_client_info": {
+          "package_name": "com.lottery.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0qlLy3ugKos14fMAA7hKqDiemX8JZ3I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
